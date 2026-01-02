@@ -16,6 +16,7 @@ class LogAuthEvents
                 'user_id'     => $event->user->id,
                 'name'        => $event->user->name,
                 'role'        => $event->user->role,
+                'description' => 'User Logged In',
             ]);
         }
 

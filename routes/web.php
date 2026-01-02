@@ -64,10 +64,9 @@ Route::middleware(['auth', 'role:seller'])->group(function () {
 
     // Product Management
     Route::get('/seller/products', [SellerController::class, 'index'])->name('seller.products.index');
-    Route::get('/seller/product/create', [SellerController::class, 'create'])->name('seller.product.create'); // নাম ঠিক করা হলো
-    Route::post('/seller/product/store', [SellerController::class, 'store'])->name('seller.product.store'); // নাম ঠিক করা হলো
+    Route::get('/seller/product/create', [SellerController::class, 'create'])->name('seller.product.create');
+    Route::post('/seller/product/store', [SellerController::class, 'store'])->name('seller.product.store');
 
-    // Product Edit/Update/Delete (Add these if needed based on controller)
     Route::get('/seller/product/edit/{id}', [SellerController::class, 'edit'])->name('seller.products.edit');
     Route::put('/seller/product/update/{id}', [SellerController::class, 'update'])->name('seller.products.update'); // PUT used generally
     Route::delete('/seller/product/delete/{id}', [SellerController::class, 'destroy'])->name('seller.products.destroy');

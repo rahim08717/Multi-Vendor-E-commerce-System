@@ -43,10 +43,9 @@ class LoginController extends Controller
     }
 
 
-    // এই ফাংশনটি লগইন সফল হলে কল হয়
+
     protected function authenticated(Request $request, $user)
     {
-        // ১. লগ তৈরি করছি
         ActivityLog::create([
             'user_id' => $user->id,
             'name'    => $user->name,
@@ -54,7 +53,6 @@ class LoginController extends Controller
             'description' => 'User Logged In',
         ]);
 
-        // ২. এরপর আগের মতো রোল অনুযায়ী রিডাইরেক্ট হবে
         if ($user->role == 'admin') {
             return redirect('/admin/dashboard');
         }

@@ -19,6 +19,8 @@ class RolePermissionSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'manage users']);
         Permission::firstOrCreate(['name' => 'create product']);
         Permission::firstOrCreate(['name' => 'place order']);
+        Permission::firstOrCreate(['name' => 'edit product']);
+        Permission::firstOrCreate(['name' => 'delete product']);
 
 
         $adminRole->givePermissionTo(Permission::all());
@@ -30,11 +32,9 @@ class RolePermissionSeeder extends Seeder
         foreach ($users as $user) {
             if ($user->role == 'admin') {
                 $user->assignRole($adminRole);
-            }
-            elseif ($user->role == 'seller') {
+            } elseif ($user->role == 'seller') {
                 $user->assignRole($sellerRole);
-            }
-            elseif ($user->role == 'customer') {
+            } elseif ($user->role == 'customer') {
                 $user->assignRole($customerRole);
             }
         }
