@@ -60,7 +60,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 // ==========================================
 Route::middleware(['auth', 'role:seller'])->group(function () {
 
-    // Dashboard (FIX: সঠিক কন্ট্রোলারে পাঠানো হলো)
     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
 
     // Product Management
@@ -75,6 +74,5 @@ Route::middleware(['auth', 'role:seller'])->group(function () {
 
     // Order Management
     Route::get('/seller/orders', [SellerController::class, 'orders'])->name('seller.orders.index');
-    // Seller Routes গ্রুপের ভেতরে এটা বসাও
     Route::post('/seller/order/update/{id}', [SellerController::class, 'updateOrderStatus'])->name('seller.order.update');
 });
